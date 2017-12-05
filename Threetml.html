@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <style>
+     body { margin: 0; }
+     canvas { width: 100%; height: 100% }
+   </style>
+    <meta name="description" content="DESCRIPTION">
+   <link rel="stylesheet" href="css/final.css">
+   <link href="https://fonts.googleapis.com/css?family=Coustard" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!-- GREENSOCK -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+
+   <link href="https://fonts.googleapis.com/css?family=Coustard" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body class="daylight">
+<!--<div class="output-bar">here is text</div>-->
+<h1>Amountin'</h1>
+<div class="soundControls">
+  <a href="#" style="color:inherit"><i class="fa fa-volume-off" aria-hidden="true"><span class="soundLabel" id="off"> sound is off</span></i></a>
+  <a href="#" style="color:inherit"><i class="fa fa-volume-up" aria-hidden="true"><span class="soundLabel" id="on">sound is on</span></i></a>
+</div>
+<a href="#"><div class="loading-invisible-noflash">
+
+<div class="resetCamera">
+  Reset camera
+</div></div></a>
+
+<h2 class="hide">Amountin'</h2>
+
+<!--New stuff-->
+<div class="savings-goal-incrementer center-save">
+<div class="heading-text">wouldn't it be nice?</div>
+
+  <div class="increment-amount-controls">
+
+      <div class="amount-output-container">
+
+          <div class="amount-output-label">
+          to save
+          </div>
+          <div class="amount-output">
+          --
+          </div>
+
+      </div>
+      <div class="amount-increment-button-container">
+
+
+          <a href="#"><div class="amount-upwards">
+            +
+            <i class="fa fa-usd" aria-hidden="true" style="margin-left:8px;"></i>
+          </div></a>
+          <div class="amount-downwards">
+            -
+            <i class="fa fa-usd" aria-hidden="true" style="margin-left:8px;"></i>
+          </div>
+          </div>
+      </div>
+      <div class="pointer-line">
+
+      </div>
+  </div>
+</div>
+
+<!--date incrementer-->
+
+<div class="date-goal-incrementer center-date">
+
+  <div class="increment-date-controls">
+
+      <div class="date-output-container">
+
+          <div class="date-output-label">
+          by the end of
+          </div>
+          <div class="date-output">
+          <span id="spanDate">--</span>
+          </div>
+
+      </div>
+      <div class="date-increment-button-container">
+
+
+          <a href="#"><div class="date-upwards">
+            +
+            <i class="fa fa-calendar-o" aria-hidden="true" style="margin-left:8px;"></i>
+          </div></a>
+          <div class="date-downwards">
+            -
+            <i class="fa fa-calendar-o" aria-hidden="true" style="margin-left:8px;"></i>
+          </div>
+          </div>
+      </div>
+      <!-- <img src="img/Squiggle.png" /> -->
+  </div>
+</div>
+
+
+<!--New stuff-->
+
+<div class="controls-container">
+
+<div class="controls-design" id="frequency-incrementer">
+
+  <div class="controls-header">
+    <div class="toggle-trio">
+      <a href="#"><div class="toggle selected" id="months">
+      m
+      </div></a>
+      <a href="#"><div class="toggle" id="fortnights">
+      f
+      </div></a>
+      <a href="#"><div class="toggle" id="weeks">
+      w
+      </div></a>
+    </div>
+  </div>
+
+  <div class="controls-output">
+
+    <p id="finalOutput">select a timeframe <i class="fa fa-calendar-o" aria-hidden="true" style="margin-left:8px;"></i></p>
+
+
+  </div>
+
+
+</div>
+  </div>
+</div>
+
+<!--JS files-->
+<script src="js/calculator.js"></script>
+<script src="js/three.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/objects.js"></script>
+<script src="https://use.fontawesome.com/99bec0914d.js"></script>
+<script src="js/soundControls.js"></script>
+<script src="js/resetCamera.js"></script>
+<script scr="js/animations.js"></script>
+
+
+
+
+
+</body>
+
+</html>
