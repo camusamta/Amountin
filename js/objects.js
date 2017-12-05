@@ -16,7 +16,7 @@ audioLoader.load( 'sound/seagulls.ogg', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setRefDistance( 20 );
   sound.setLoop( true );
-	// sound.play();
+	sound.play();
 });
 
 
@@ -25,7 +25,7 @@ audioLoader.load ('sound/increment.ogg', function( buffer) {
 
 soundUpClick.setBuffer( buffer );
 
-});  
+});
 
 var soundDownClick = new THREE.PositionalAudio( listener );
 audioLoader.load( 'sound/water-click.ogg', function( buffer ) {
