@@ -28,6 +28,11 @@ amount += 200;
 
 $(".amount-output").text('$'+amount);
 
+if (datePosition <= 1 || months <= 0) {
+
+  $("#finalOutput").text('select a timeframe');
+
+}
 
 if (amount == 400 ) {
 
@@ -84,6 +89,12 @@ if (amount <= 0) {
 
 $(".amount-output").text('--');
 amount = 0;
+
+}
+
+if (datePosition <= 1 || months <= 0) {
+
+  $("#finalOutput").text('select a timeframe');
 
 }
 
