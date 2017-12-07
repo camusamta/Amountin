@@ -28,12 +28,6 @@ amount += 200;
 
 $(".amount-output").text('$'+amount);
 
-if (datePosition <= 1 || months <= 0) {
-
-  $("#finalOutput").text('select a timeframe');
-
-}
-
 if (amount == 400 ) {
 
   GSAPweights(0, 1, mountainMesh, 0);
@@ -69,7 +63,17 @@ if (amount == 4000) {
 
 if ($(".date-upwards").data('clicked')) {
 
+  if (datePosition <= 1 || months <= 0) {
+
+    $("#finalOutput").text('select a timeframe');
+    console.log('Im firing!')
+  } else {
+
    displayOutput();
+
+  }
+
+
 
 }
 
