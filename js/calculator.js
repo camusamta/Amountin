@@ -1,4 +1,4 @@
-var dateArray = ['You definitely cant go lower than that','well, when?','Dec 2017','Jan 2018','Feb 2018','Mar 2018','Apr 2018','May 2018','Jun 2018','Jul 2018','Aug 2018','Nov 2018','Dec 2018','Jan 2019','Feb 2019','Mar 2019','Apr 2019','May 2019','Jun 2019','Jul 2019','Aug 2019','Sep 2019','Oct 2019','Nov 2019','Dec 2019','Youve reached the max for this prototype!'];
+var dateArray = ['You definitely cant go lower than that','well, when?','Dec 2017','Jan 2018','Feb 2018','Mar 2018','Apr 2018','May 2018','Jun 2018','Jul 2018','Aug 2018','Nov 2018','Dec 2018','Jan 2019','Feb 2019','Mar 2019','Apr 2019','May 2019','Maximum reached!'];
 //Duplicate 'well, when's' as a 1 second solution to the problem of time moving foward while I worked on this assignment
 
 var datePosition = 1;
@@ -140,15 +140,21 @@ var cameraZ = 15;
 $(".date-upwards").on("click",function() {
 
 months++;
-console.log(months);
+console.log('this is the output for months:'+ months);
 datePosition++;
 $("#spanDate").text(dateArray[datePosition])
 addRock()
+
+if (months < 16) {
 displayOutput();
+} else if (months > 16){
+
+  $("#finalOutput").text('Prototype limit reached!');
+}
 
 if (months > 3 && months < 8) {
   cameraZ += 5;
-  TweenLite.to(camera.position, 1.8, { z:cameraZ, Circ: Power1.easeInOut});
+  TweenLite.to(camera.position, 1.6, { z:cameraZ, Circ: Power1.easeInOut});
   // camera.position.z = 35;
   TweenMax.to(".daylight", 1, {css:{className:"spacelight"}});
 
@@ -156,13 +162,20 @@ if (months > 3 && months < 8) {
 
 //  TweenLite.to(camera.position, 5, { z:35 });
 
-if (months > 11) {
+if (months === 12) {
 
 TweenLite.to(camera.position, 2, { z: 40 });
+cameraZ = 40;
 // TweenLite.to(camera.position, 2, { y: 4});
 // TweenLite.to(camera.rotation, 2, { x: -0.3});
 //different approach
 // TweenLite.to(scene.rotation, 2, { x: 0.15});
+
+}
+
+if (months > 12 && months < 14) {
+  cameraZ += 5;
+  TweenLite.to(camera.position, 1.6, { z:cameraZ, Circ: Power1.easeInOut});
 
 }
 
@@ -200,7 +213,6 @@ $(".date-downwards").on("click",function(){
 $(".date-upwards").on('click', function() {
      $(this).data('clicked', true);
      $(".controls-design").fadeIn();
-     console.log('a true thing has happened!');
 });
 
 //the function that writes the sum of the calculator to the screen

@@ -16,13 +16,13 @@ audioLoader.load( 'sound/seagulls.ogg', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setRefDistance( 20 );
   sound.setLoop( true );
-	//sound.play();
+	// sound.play();
 });
 
 
 var soundUpClick = new THREE.PositionalAudio( listener );
 audioLoader.load ('sound/increment.ogg', function( buffer) {
-
+// soundUpClick.setVolume(2);
 soundUpClick.setBuffer( buffer );
 
 });
@@ -599,8 +599,17 @@ rock8:[-15,-2,22],
 rock9:[-11,-3,25],
 rock10:[-3,-2,30],
 rock11:[2,-2,31],
-rock12:[6,-2,32]
-
+rock12:[6,-2,32],
+rock13:[8,-2,35],
+// rock14:[11,-2,36],
+// rock15:[8,-2,40]
+rock14:[5,-2,37],
+rock15:[1,-2,40],
+rock16:[-2,-2,41],
+rock17:[-5,-2,43],
+rock18:[-8,-2,45],
+rock19:[-4,-2,47],
+rock20:[-1,-2,48]
 };
 var string = 'rock1';
 
