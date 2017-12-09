@@ -156,8 +156,13 @@ if (months > 3 && months < 8) {
   cameraZ += 5;
   TweenLite.to(camera.position, 1.6, { z:cameraZ, Circ: Power1.easeInOut});
   // camera.position.z = 35;
-  TweenMax.to(".daylight", 1, {css:{className:"spacelight"}});
 
+
+}
+
+if (months === 6) {
+
+  TweenMax.to(".daylight", 1, {css:{className:"daylightDarker"}});
 }
 
 //  TweenLite.to(camera.position, 5, { z:35 });
@@ -166,6 +171,7 @@ if (months === 12) {
 
 TweenLite.to(camera.position, 2, { z: 40 });
 cameraZ = 40;
+TweenMax.to(".daylightDarker", 4, {css:{className:"spacelight"}});
 // TweenLite.to(camera.position, 2, { y: 4});
 // TweenLite.to(camera.rotation, 2, { x: -0.3});
 //different approach

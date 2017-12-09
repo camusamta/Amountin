@@ -20,16 +20,16 @@ body {
 .spacelight {
 
 position: relative;
-background:radial-gradient(transparent -100%, #343434 70%);
+background:radial-gradient(transparent -100%, #071B2C 60%);
 display: flex;
 align-items: center;
 justify-content: center;
 
 }
 
-.pulselight {
+.daylightDarker {
   position: relative;
-  background:radial-gradient(50% 100%, transparent -50%, #E8B34C 100%);
+  background:radial-gradient(transparent -100%, #13324B 90%);
   display: flex;
   align-items: center;
   justify-content: center;
