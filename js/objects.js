@@ -63,12 +63,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 camera.position.z = 15;
 console.log(camera);
 
-//alternate scene positioning ----- IMPORTANT
-
-// scene.position.set(3,0,0);
-// scene.rotation.y = -0.11906585;
-
-
 
 
 var controls;
@@ -242,6 +236,66 @@ tl.to(BirdModel.position, 10, {y: 2},'-=13');
 
 addBird();
 
+//function that adds jetty
+var jetty;
+
+function addJetty() {
+var loader = new THREE.JSONLoader();
+loader.load("3D_json/jetty.json", callJetty);
+
+}
+
+//callback function - jetty
+
+function callJetty(geometry, materials) {
+var material = new THREE.MeshBasicMaterial(materials);
+jetty = new THREE.Mesh( geometry, materials);
+jetty.scale.set(0.01,0.01,0.01);
+jetty.position.y = -0.9;
+jetty.position.z = 6;
+jetty.position.x = 3;
+jetty.rotation.y = -0.89;
+jetty.rotation.x = 0.4
+jetty.castShadow = true;
+// jetty.receiveShadow = true;
+TweenLite.to(jetty.scale, 0.6, {x:0.3, y:0.3, z:0.3, ease: Back.easeOut.config(1.7)})
+scene.add(jetty);
+
+}
+
+//function that adds boat
+var boat;
+
+function addBoat() {
+var loader = new THREE.JSONLoader();
+loader.load("3D_json/boat.json", callBoat);
+
+}
+
+//callback function - boat
+
+function callBoat(geometry, materials) {
+var material = new THREE.MeshBasicMaterial(materials);
+boat = new THREE.Mesh( geometry, materials);
+boat.scale.set(0.01,0.01,0.01);
+boat.position.y = -1.30;
+boat.position.z = 7;
+boat.position.x = 2;
+boat.rotation.y = 0.29;
+boat.rotation.x = 0.34;
+// boat.castShadow = true;
+boat.receiveShadow = true;
+TweenLite.to(boat.scale, 0.6, {x:0.2, y:0.2, z:0.2, ease: Back.easeOut.config(1.7)})
+scene.add(boat);
+var tl = new TimelineMax({repeat: -1, yoyo: true});
+tl.to(boat.rotation, 5, {x: 0.25, ease: Power1.easeInOut});
+
+
+}
+
+
+
+
 
 //function that adds treeOne
 
@@ -288,13 +342,10 @@ var material = new THREE.MeshBasicMaterial(materials);
 treeModelTwo = new THREE.Mesh( geometry, materials);
 treeModelTwo.scale.set(0.1,0.1,0.1);
 treeModelTwo.position.x = 1.8;
-treeModelTwo.position.z = 4;
+treeModelTwo.position.z = 3;
 treeModelTwo.position.y = -0.8;
-//treeModelOne.position.y = 4;
 treeModelTwo.rotation.x = 0.4;
-//treeModelTwo.rotation.y = 3.7123889804;
-// treeModelTwo.castShadow = true;
-//treeModelTwo.receiveShadow = true;
+treeModelTwo.receiveShadow = true;
 //TweenLite.to(treeModelTwo.scale, 0.3, { x: 1, y: 1, z: 1 });
 TweenLite.to(treeModelTwo.scale, 0.5, {x:1, y:1, z:1, ease: Back.easeOut.config(1.7)})
 scene.add(treeModelTwo);
@@ -348,7 +399,6 @@ buoy.castShadow = true;
 buoy.receiveShadow = true;
 scene.add(buoy);
 
-// scene.add(beachBall);
 var tl = new TimelineMax({repeat: -1, yoyo: true});
 tl.to(buoy.position, 3, {y: -1.4, ease: Power1.easeInOut});
 tl.to(buoy.rotation, 6, {z: -0.2, ease: Power1.easeInOut})
@@ -376,8 +426,8 @@ deckChair.rotation.y = -0.90;
 deckChair.rotation.x = 0.3;
 deckChair.castShadow = true;
 deckChair.receiveShadow = true;
-TweenLite.to(deckChair.scale, 0.55, {x:0.2, y:0.2, z:0.2, ease: Back.easeOut.config(2.7)})
-
+TweenLite.to(deckChair.scale, 0.55, {x:0.17, y:0.17, z:0.17, ease: Back.easeOut.config(2.7)})
+//previously scale sie was 0.2
 //mountainMesh.rotation.z = 4.7;
 // deckChair.rotation.z = 0.8;
 
@@ -607,9 +657,6 @@ rock14:[5,-2,37],
 rock15:[1,-2,40],
 rock16:[-2,-2,41],
 rock17:[-5,-2,43],
-rock18:[-8,-2,45],
-rock19:[-4,-2,47],
-rock20:[-1,-2,48]
 };
 var string = 'rock1';
 

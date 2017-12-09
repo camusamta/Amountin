@@ -57,7 +57,13 @@ if (amount == 2400) {
 
 if (amount == 4000) {
 
-  addWaterfall();
+  addJetty();
+}
+
+if (amount === 6000) {
+
+
+  addBoat();
 }
 
 
@@ -124,7 +130,12 @@ if (amount < 2400) {
 
 if (amount < 4000) {
 
-  scene.remove(waterfall);
+  scene.remove(jetty);
+}
+
+if (amount < 6000) {
+
+  scene.remove(boat);
 }
 
 if ($(".date-upwards").data('clicked') && amount > 0) {
@@ -149,6 +160,9 @@ if (months < 16) {
 displayOutput();
 } else if (months > 16){
 
+//something here needs to stop maxing out of calc on further clicks
+// months = 16;
+!addRock();
   $("#finalOutput").text('Prototype limit reached!');
 }
 
