@@ -16,7 +16,7 @@ audioLoader.load( 'sound/seagulls.ogg', function( buffer ) {
 	sound.setBuffer( buffer );
 	sound.setRefDistance( 20 );
   sound.setLoop( true );
-	sound.play();
+	//sound.play();
 });
 
 
@@ -79,7 +79,6 @@ controls.maxPolarAngle = Math.PI/2;
 controls.minPolarAngle = Math.PI/2;;
 controls.minAzimuthAngle = -0.349066; // radians
 controls.maxAzimuthAngle = 0.349066; // radians
-
 
 //Goal Mountain Loader
 var loader = new THREE.JSONLoader();
@@ -420,7 +419,7 @@ sceneRock2.scale.set (0.1,0.1,0.1);
 
 sceneRock2.position.x = 1.2;
 sceneRock2.position.z = 4;
-sceneRock2.position.y = -0.28;
+sceneRock2.position.y = -0.31;
 sceneRock2.rotation.x = 0.3;
 sceneRock2.castShadow = true;
 sceneRock2.receiveShadow = true;
@@ -599,7 +598,8 @@ rock7:[-14,-2,18],
 rock8:[-15,-2,22],
 rock9:[-11,-3,25],
 rock10:[-3,-2,30],
-rock11:[2,-1,31]
+rock11:[2,-2,31],
+rock12:[6,-2,32]
 
 };
 var string = 'rock1';

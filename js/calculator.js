@@ -1,4 +1,4 @@
-var dateArray = ['You definitely cant go lower than that','well, when?','Dec 2017','Jan 2018','Feb 2018','Mar 2018','Apr 2018','May 2018','Jun 2018','Jul 2018','Aug 2018','Nov 2018','Dec 2018','Jan 2019','Feb 2019','Mar 2019','Apr 2019','May 2019','Jun 2019','Jul 2019','Aug 2019','Sep 2019','Oct 2019','Nov 2019','Dec 2019','Max'];
+var dateArray = ['You definitely cant go lower than that','well, when?','Dec 2017','Jan 2018','Feb 2018','Mar 2018','Apr 2018','May 2018','Jun 2018','Jul 2018','Aug 2018','Nov 2018','Dec 2018','Jan 2019','Feb 2019','Mar 2019','Apr 2019','May 2019','Jun 2019','Jul 2019','Aug 2019','Sep 2019','Oct 2019','Nov 2019','Dec 2019','Youve reached the max for this prototype!'];
 //Duplicate 'well, when's' as a 1 second solution to the problem of time moving foward while I worked on this assignment
 
 var datePosition = 1;
@@ -134,6 +134,7 @@ if ($(".date-upwards").data('clicked') && amount > 0) {
 }
 });
 
+var cameraZ = 15;
 //Adding a timeframe
 
 $(".date-upwards").on("click",function() {
@@ -145,16 +146,23 @@ $("#spanDate").text(dateArray[datePosition])
 addRock()
 displayOutput();
 
-if (months > 3) {
-  TweenLite.to(camera.position, 5, { z:35 });
+if (months > 3 && months < 8) {
+  cameraZ += 5;
+  TweenLite.to(camera.position, 1.8, { z:cameraZ, Circ: Power1.easeInOut});
   // camera.position.z = 35;
   TweenMax.to(".daylight", 1, {css:{className:"spacelight"}});
 
 }
 
+//  TweenLite.to(camera.position, 5, { z:35 });
+
 if (months > 11) {
 
 TweenLite.to(camera.position, 2, { z: 40 });
+// TweenLite.to(camera.position, 2, { y: 4});
+// TweenLite.to(camera.rotation, 2, { x: -0.3});
+//different approach
+// TweenLite.to(scene.rotation, 2, { x: 0.15});
 
 }
 
@@ -181,6 +189,7 @@ $(".date-downwards").on("click",function(){
 
   TweenMax.to(".spacelight", 0.5, {css:{className:"daylight"}});
   TweenLite.to(camera.position, 1, { z: 15 });
+  cameraZ = 15;
 
 
 }
