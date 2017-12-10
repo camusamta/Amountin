@@ -11,6 +11,7 @@ var $body = $('body');
 $(document).ready(function(){
 
 $(".date-goal-incrementer").hide();
+$(".controls-design").css("display", "flex").hide();
 $('h1').delay(3300).fadeIn(1800);
 $(".savings-goal-incrementer").delay(3300).fadeIn(1800);
 $("#spanDate").text(dateArray[datePosition]);
@@ -72,7 +73,7 @@ if ($(".date-upwards").data('clicked')) {
   if (datePosition <= 1 || months <= 0) {
 
     $("#finalOutput").text('select a timeframe');
-    console.log('Im firing!')
+
   } else {
 
    displayOutput();
@@ -153,16 +154,18 @@ $(".date-upwards").on("click",function() {
 months++;
 console.log('this is the output for months:'+ months);
 datePosition++;
-$("#spanDate").text(dateArray[datePosition])
-addRock()
+$("#spanDate").text(dateArray[datePosition]);
 
-if (months < 16) {
+
+if (months <= 16) {
 displayOutput();
+addRock()
 } else if (months > 16){
 
 //something here needs to stop maxing out of calc on further clicks
-// months = 16;
-!addRock();
+months = 17;
+datePosition = 18;
+
   $("#finalOutput").text('Prototype limit reached!');
 }
 
@@ -240,11 +243,11 @@ $(".date-upwards").on('click', function() {
 function finalOutput(){
 
  if (months === 1 ) {
-  $("#finalOutput").html('Put away a <span style="color:#476300"> &nbsp single payment &nbsp </span> of $'+Math.floor(amount/months));
+  $("#finalOutput").html('Put away a <span style="color:#476300"> &nbsp single payment of $'+Math.floor(amount/months)+'</span>');
 
 
 } else {
-  $("#finalOutput").html('Put away $'+Math.floor(amount/months)+'<span style="color:#476300"> &nbsp each month &nbsp </span> for '+months+' months' );
+  $("#finalOutput").html('Put away&nbsp <span style="color:#476300">$'+Math.floor(amount/months)+'&nbsp each month &nbsp </span>' );
 
 
 }
@@ -255,24 +258,24 @@ function finalOutputForts() {
 
 
   if (months === 1 ) {
-   $("#finalOutput").text('Put away $'+Math.floor((amount/months)/2)+ ' fortnightly for '+months+' month');
+   $("#finalOutput").html('Put away &nbsp<span style="color:#476300">$'+Math.floor((amount/months)/2)+ ' fortnightly</span>&nbsp for '+months+' month');
 
 
  } else {
 
-  $("#finalOutput").text('Put away $'+Math.floor((amount/months)/2)+ ' fortnightly for '+months+' months');
+  $("#finalOutput").html('Put away &nbsp <span style="color:#476300">$'+Math.floor((amount/months)/2)+ '&nbsp each fortnight</span>');
 }
 }
 
 function finalOutputWeeks() {
 
 if (months === 1 ) {
- $("#finalOutput").text('Put away $'+Math.floor((amount/months)/4)+ ' weekly for '+months+' month');
+ $("#finalOutput").html('Put away &nbsp<span style="color:#476300">$'+Math.floor((amount/months)/4)+ ' weekly</span>&nbsp for '+months+' month');
 
 
 } else {
 
-$("#finalOutput").text('Put away $'+Math.floor((amount/months)/4)+ ' weekly for '+months+' months');
+$("#finalOutput").html('Put away &nbsp<span style="color:#476300">$'+Math.floor((amount/months)/4)+ '&nbsp each week</span>');
 }
 
 }
