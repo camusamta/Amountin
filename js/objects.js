@@ -90,17 +90,14 @@ loader.load("3D_json/mountain-standalone.json", addModel);
 //callback function - goal mountain
 
 function addModel(geometry, materials) {
-//var material = new THREE.MeshBasicMaterial(materials);
-//materials[0].morphTargets = true;
+
 Amountmesh = new THREE.Mesh( geometry, materials);
-//for heightmapped model
+
 Amountmesh.scale.set (7,7,7);
-//Amountmesh.morphTargetInfluences[0] = 0;
 Amountmesh.position.y = -4;
 Amountmesh.rotation.x = 0.3;
 Amountmesh.rotation.y = 0.12;
 Amountmesh.name = "amountmesh";
-// Amountmesh.castShadow = true;
 Amountmesh.receiveShadow = true;
 scene.add(Amountmesh);
 Amountmesh.add(sound);
@@ -112,7 +109,6 @@ function addMountain(geometry, materials) {
 
 mountainMesh = new THREE.Mesh (geometry, materials);
 materials[0].morphTargets = true;
-//mountainMesh.morphTargetInfluences[0] = 1;
 
 mountainMesh.scale.set (2,2,2);
 mountainMesh.position.y = 2;
@@ -139,75 +135,6 @@ function GSAPweights(startvalue, endvalue, object, blendweightnum) {
   }
 }
 
-//
-// function cameraMove() {
-//
-//   var tl = new TimelineLite();
-//
-//   tl.to(camera.position, 1, {
-//     z: months + 10
-//   });
-//
-// };
-
-
-//for Maya model through above loader
-//Amountmesh.scale.set (15,15,15);
-//Amountmesh.rotation.x = 0.1;
-//Amountmesh.rotation.y = 4.7123889804;
-
-//------Liams class experiments
-//callback function - goal mountain
-//unction addModel(geometry, materials) {
-// var material = new THREE.MeshLambertMaterial(materials);
-// Amountmesh = new THREE.Mesh( geometry, materials);
-// Amountmesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial({
-//   morphTargets: true  //This is a important requirement for morphtargets
-// }));
-// Amountmesh.morphTargetInfluences[0] = 0;
-// // console.log(Amountmesh.morphTargetInfluences[0]);
-// // Amountmesh.morphTargetInfluences[0] = 0;
-// // Amountmesh.scale.set (15,15,15);
-// Amountmesh.rotation.x = 0.1;
-// Amountmesh.rotation.y = 4.7123889804;
-// Amountmesh.name = "amountmesh";
-// scene.add(Amountmesh);
-// console.log("Test amount mesh");
-// console.log(Amountmesh);
-// }
-//
-// function shapeMorph(){
-//   if (amount == 600) {
-//
-//     var tl = new TimelineLite();
-//     // var obj = morphTargetInfluences[0];
-//
-//     // tl.to(Amountmesh, 1, {
-//     //   "morphTargetInfluences[0]": "1"
-//     // });
-//     var test = {amount:0};
-//     tl.to(test, 1, {
-//       amount: 1
-//     });
-//     console.log(test.amount + "testamount");
-//     Amountmesh.morphTargetInfluences[0] = test.amount;
-//     console.log(Amountmesh.morphTargetInfluences[0] + "meshamount");
-
-    // Amountmesh.morphTargetInfluences[0] = 1;
-//   }
-// }
-
-// THIS WORKS AND IS A BACKUP
-// function shapeMorph(){
-//   if (amount == 600) {
-//     Amountmesh.morphTargetInfluences[0] = 1;
-//   }
-// }
-
-
-
-
-
 //function that runs the Bird Loader, which, when run, loads the bird
 
 var BirdModel;
@@ -229,8 +156,7 @@ BirdModel.scale.set (3,3,3);
 BirdModel.position.x = 1;
 BirdModel.position.y = 3;
 BirdModel.position.z = 4;
-// BirdModel.castShadow = true;
-// BirdModel.receiveShadow = true;
+
 scene.add(BirdModel);
 var tl = new TimelineMax({repeat: -1, yoyo: true});
 tl.to(BirdModel.position, 13, {x: -2, ease: Power1.easeInOut});
@@ -264,7 +190,6 @@ jetty.position.x = 3;
 jetty.rotation.y = -0.89;
 jetty.rotation.x = 0.4
 jetty.castShadow = true;
-// jetty.receiveShadow = true;
 TweenLite.to(jetty.scale, 0.6, {x:0.3, y:0.3, z:0.3, ease: Back.easeOut.config(1.7)})
 scene.add(jetty);
 
@@ -323,15 +248,6 @@ var tl = new TimelineMax({repeat: -1, yoyo: true});
 tl.to(biplane.rotation, 4, {x:0.78, ease: Power1.easeInOut},'-=3');
 tl.to(biplane.position, 6, {y:1, ease: Power1.easeInOut});
 tl.to(biplane.position, 4, {x:4, ease: Power1.easeInOut},'-=3');
-// tl.to(biplane.position, 5, {x: 7, ease: Power1.easeInOut});
-// tl.to(biplane.rotation, 1, {y: 3.14});
-// tl.to(biplane.position, 5, {x: -7, ease: Power1.easeInOut});
-// tl.to(biplane.position, 5, {x: -7, ease: Power1.easeInOut});
-// tl.to(biplane.rotation, 1, {y: 3.14});
-// tl.to(biplane.position, 10, {x: 2, ease: Power1.easeInOut});
-// tl.to(biplane.rotation, 3, {x: 0},'-=8');
-// tl.to(biplane.position, 10, {y: 2},'-=13');
-
 }
 
 // addBiplane();
@@ -559,8 +475,6 @@ light.castShadow = true;
 light.shadowDarkness = 0.2;
 
 var suffuse = new THREE.AmbientLight(0xFFF5E0, 0.3);
-//back to 0.3 strength for default scene position
-//upwards to 0.6 for alt position
 scene.add(suffuse);
 
 var underlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
@@ -572,47 +486,6 @@ underlight.shadowDarkness = 0.2;
 scene.add(underlight);
 
 
-
-
-// //global year variable
-//
-// var year = 2017;
-
-
-
-//--------Remaining Calculator--------
-
-
-
-
-
-
-//jQuery for incrementing months upwards on click of .up class
-
-$(".dash-upwards").on("click",function(){
-
-//cameraMove();
-if (months < 20) {
-months++
-//$("#monthOutput").text(calendarMonths[months]);
-addRock();
-finalOutput();} else {
-
-  console.log('Youve hit the max!');
-}
-
-
-});
-
-//jQuery for de-incrementing months on click of .down class
-$("#months-down").on("click",function(){
-
-months--;
-$("#monthOutput").text(calendarMonths[months]);
-console.log('down'+months);
-subtractRock();
-
-});
 
 //the 'add rock' function that runs at the end of the above incrementer jquery code
 function addRock(){
