@@ -283,7 +283,6 @@ boat.position.z = 7;
 boat.position.x = 2;
 boat.rotation.y = 0.29;
 boat.rotation.x = 0.34;
-// boat.castShadow = true;
 boat.receiveShadow = true;
 TweenLite.to(boat.scale, 0.6, {x:0.2, y:0.2, z:0.2, ease: Back.easeOut.config(1.7)})
 scene.add(boat);
@@ -292,6 +291,44 @@ tl.to(boat.rotation, 5, {x: 0.25, ease: Power1.easeInOut});
 
 
 }
+
+//function that adds biplane
+var biplane;
+
+function addBiplane() {
+var loader = new THREE.JSONLoader();
+loader.load("3D_json/biplane.json", callBiplane);
+
+}
+
+//callback function - biplane
+
+function callBiplane(geometry, materials) {
+var material = new THREE.MeshBasicMaterial(materials);
+biplane = new THREE.Mesh( geometry, materials);
+biplane.scale.set(0.2,0.2,0.2);
+biplane.position.x = 2
+biplane.position.z = 18;
+biplane.rotation.y = 3.14;
+scene.add(biplane);
+var tl = new TimelineMax({repeat: -1, yoyo: true});
+
+tl.to(biplane.rotation, 4, {x:0.78, ease: Power1.easeInOut},'-=3');
+tl.to(biplane.position, 6, {y:1, ease: Power1.easeInOut});
+tl.to(biplane.position, 4, {x:4, ease: Power1.easeInOut},'-=3');
+// tl.to(biplane.position, 5, {x: 7, ease: Power1.easeInOut});
+// tl.to(biplane.rotation, 1, {y: 3.14});
+// tl.to(biplane.position, 5, {x: -7, ease: Power1.easeInOut});
+// tl.to(biplane.position, 5, {x: -7, ease: Power1.easeInOut});
+// tl.to(biplane.rotation, 1, {y: 3.14});
+// tl.to(biplane.position, 10, {x: 2, ease: Power1.easeInOut});
+// tl.to(biplane.rotation, 3, {x: 0},'-=8');
+// tl.to(biplane.position, 10, {y: 2},'-=13');
+
+}
+
+// addBiplane();
+
 
 
 

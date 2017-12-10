@@ -297,8 +297,11 @@ margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Roboto;
-  border-radius: 2px;
+  font-family: Coustard, Serif;
+  border-radius: 0 0 2px 2px;
+  border-top: 1px solid rgba(163,143,62,0.7);
+  box-sizing: border-box;
+
 
 
 }
@@ -307,7 +310,8 @@ margin-top: 15px;
 
 background:rgba(255,255,255,0.85);
 color: #476300;
-font-size: 18px;
+font-size: 16px;
+/*border-top: 5px solid #A38F3E;*/
 font-family: Coustard, Serif;
 
 

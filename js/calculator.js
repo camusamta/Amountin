@@ -152,7 +152,6 @@ var cameraZ = 15;
 $(".date-upwards").on("click",function() {
 
 months++;
-console.log('this is the output for months:'+ months);
 datePosition++;
 $("#spanDate").text(dateArray[datePosition]);
 
@@ -162,7 +161,6 @@ displayOutput();
 addRock()
 } else if (months > 16){
 
-//something here needs to stop maxing out of calc on further clicks
 months = 17;
 datePosition = 18;
 
@@ -172,7 +170,6 @@ datePosition = 18;
 if (months > 3 && months < 8) {
   cameraZ += 5;
   TweenLite.to(camera.position, 1.6, { z:cameraZ, Circ: Power1.easeInOut});
-  // camera.position.z = 35;
 
 
 }
@@ -189,10 +186,6 @@ if (months === 12) {
 TweenLite.to(camera.position, 2, { z: 40 });
 cameraZ = 40;
 TweenMax.to(".daylightDarker", 4, {css:{className:"spacelight"}});
-// TweenLite.to(camera.position, 2, { y: 4});
-// TweenLite.to(camera.rotation, 2, { x: -0.3});
-//different approach
-// TweenLite.to(scene.rotation, 2, { x: 0.15});
 
 }
 
@@ -230,6 +223,26 @@ $(".date-downwards").on("click",function(){
 
 }
 
+if (months === 5) {
+
+  TweenMax.to(".daylightDarker", 1, {css:{className:"daylight"}});
+}
+
+if (months > 3 && months < 7) {
+  cameraZ -= 5;
+  TweenLite.to(camera.position, 1.6, { z:cameraZ, Circ: Power1.easeInOut});
+
+
+}
+
+if (months === 11) {
+
+TweenLite.to(camera.position, 2, { z: 35 });
+cameraZ = 35;
+TweenMax.to(".spacelight", 0.5, {css:{className:"daylightDarker"}});
+
+}
+
 });
 
 //detecting whether or not 'months incrementer' has been clicked already, so it can now update live, instead of showing '0 payments of infinity'
@@ -247,7 +260,7 @@ function finalOutput(){
 
 
 } else {
-  $("#finalOutput").html('Put away&nbsp <span style="color:#476300">$'+Math.floor(amount/months)+'&nbsp each month &nbsp </span>' );
+  $("#finalOutput").html('Put away&nbsp <span style="color:#476300">$'+Math.floor(amount/months)+'&nbsp each month!</span>' );
 
 
 }
@@ -263,7 +276,7 @@ function finalOutputForts() {
 
  } else {
 
-  $("#finalOutput").html('Put away &nbsp <span style="color:#476300">$'+Math.floor((amount/months)/2)+ '&nbsp each fortnight</span>');
+  $("#finalOutput").html('Put away &nbsp <span style="color:#476300">$'+Math.floor((amount/months)/2)+ '&nbsp each fortnight!</span>');
 }
 }
 
@@ -275,7 +288,7 @@ if (months === 1 ) {
 
 } else {
 
-$("#finalOutput").html('Put away &nbsp<span style="color:#476300">$'+Math.floor((amount/months)/4)+ '&nbsp each week</span>');
+$("#finalOutput").html('Put away &nbsp<span style="color:#476300">$'+Math.floor((amount/months)/4)+ '&nbsp each week!</span>');
 }
 
 }
@@ -294,14 +307,21 @@ $("#months").on('click', function() {
 
     $("#weeks").toggleClass("selected");
   }
-  console.log('I am being clicked!')
-  $("#months").toggleClass("selected");
-  finalOutput();
+
+  if (months <= 16){
+    $("#months").toggleClass("selected");
+    finalOutput();
+  } else {
+    $("#months").toggleClass("selected");
+    $("#finalOutput").text('Prototype limit reached!');
+
+  }
 // }
 
 });
 
 $("#fortnights").on('click', function() {
+
 
   if ($("#months").hasClass("selected")) {
 
@@ -313,10 +333,14 @@ $("#fortnights").on('click', function() {
     $("#weeks").toggleClass("selected");
   }
 
-  console.log('I am being clicked!')
+if (months <= 16){
   $("#fortnights").toggleClass("selected");
   finalOutputForts();
+} else {
+  $("#fortnights").toggleClass("selected");
+  $("#finalOutput").text('Prototype limit reached!');
 
+}
 
 });
 
@@ -331,9 +355,16 @@ $("#weeks").on('click', function() {
 
     $("#fortnights").toggleClass("selected");
   }
-  console.log('I am being clicked!')
-  $("#weeks").toggleClass("selected");
-  finalOutputWeeks();
+
+  if (months <= 16){
+    $("#weeks").toggleClass("selected");
+    finalOutputWeeks();
+  } else {
+    $("#weeks").toggleClass("selected");
+    $("#finalOutput").text('Prototype limit reached!');
+
+  }
+
 
 
 });
