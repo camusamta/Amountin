@@ -24,7 +24,7 @@ $(".amount-output").text('$'+amount);
 
 $(".amount-upwards").on("click",function() {
 
-soundUpClick.play();
+// soundUpClick.play();
 amount += 200;
 
 $(".amount-output").text('$'+amount);
@@ -91,7 +91,7 @@ if ($(".date-upwards").data('clicked')) {
 
 $(".amount-downwards").on("click",function() {
 
-soundDownClick.play();
+// soundDownClick.play();
 
 amount -= 200;
 $(".amount-output").text('$'+amount);
@@ -146,13 +146,17 @@ if ($(".date-upwards").data('clicked') && amount > 0) {
 }
 });
 
+//Global camera z-position variable for animating camera movement
 var cameraZ = 15;
+
+
 //Adding a timeframe
 
 $(".date-upwards").on("click",function() {
 
 months++;
 datePosition++;
+// largeSoundUpClick.play();
 $("#spanDate").text(dateArray[datePosition]);
 
 

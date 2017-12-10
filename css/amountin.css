@@ -285,6 +285,7 @@ margin-top: 15px;
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
+  animation: minorFloat 10s ease-in-out infinite;
 }
 
 .toggle {
@@ -418,6 +419,20 @@ h1 {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes minorFloat {
+
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+
 }
 
 h2 {
